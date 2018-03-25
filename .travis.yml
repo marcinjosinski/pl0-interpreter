@@ -1,0 +1,18 @@
+language: cpp
+compiler: gcc
+dist: trusty
+
+before_install:
+  - sudo add-apt-repository -y ppa:ubuntu-toolchain-r/test
+  - sudo apt-get update -qq
+
+install: 
+  - sudo apt-get install -qq g++-7
+  - sudo apt-get install libc++-dev libc++1 libc++-helpers libc++abi-dev libc++abi1
+
+script: 
+  - export CXX=g++-7
+  - cmake . -DBUILD_TESTING=ON
+  - cmake --build . -- -j2
+  - ./bin/pl0
+  - ./tests/ctest -V -j 2
