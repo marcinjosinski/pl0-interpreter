@@ -15,4 +15,4 @@ script:
   - cmake . -DBUILD_TESTING=ON
   - cmake --build . -- -j2
   - ./bin/pl0
-  - ./tests/ctest -V -j 2
+  - ctest -V -j 2
