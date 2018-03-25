@@ -3,6 +3,8 @@ project(PL0_INTERPRETER VERSION 0.1 LANGUAGES CXX)
 
 option(BUILD_TESTING "Build the unit tests" OFF)
 
+enable_testing()
+
 add_subdirectory(src)
 add_subdirectory(third_party EXCLUDE_FROM_ALL)
 if(BUILD_TESTING)

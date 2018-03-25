@@ -8,9 +8,18 @@ set_target_properties(Tests
     CXX_STANDARD 17
     CXX_STANDARD_REQUIRED ON
 )
+
+set(SRC_DIR ${PROJECT_SOURCE_DIR}/src)
+
 target_include_directories(Tests
   PRIVATE
     ${CATCH_INCLUDE_PATH}
+    ${SRC_DIR}
+)
+
+target_sources(Tests
+  PRIVATE
+    ${SRC_DIR}/token.cxx
 )
 
 enable_testing()
