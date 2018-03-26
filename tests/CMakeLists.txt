@@ -20,6 +20,7 @@ target_include_directories(Tests
 target_sources(Tests
   PRIVATE
     ${SRC_DIR}/token.cxx
+    ${SRC_DIR}/lexer.cxx
 )
 
 enable_testing()
