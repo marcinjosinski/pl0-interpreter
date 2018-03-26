@@ -1,6 +1,7 @@
 #include "token.hpp"
 #include "utils.hpp"
 #include <string>
+#include <tuple>
 
 namespace pl0::lexer {
 namespace {
@@ -49,6 +50,14 @@ std::ostream &operator<<(std::ostream &os, const token &tok) {
   sstr << "token{type:" << tok.get_name() << ", lexeme:\'" << tok.get_lexeme()
        << "\'}";
   return os << sstr.str();
+}
+
+bool token::operator==(const token& rhs) const {
+  return std::tie(lexeme_, type_) == std::tie(rhs.lexeme_, rhs.type_);
+}
+
+bool token::operator!=(const token& rhs) const {
+  return !(*this == rhs);
 }
 
 } // namespace pl0::lexer

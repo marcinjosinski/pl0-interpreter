@@ -71,3 +71,16 @@ TEST_CASE("Token_type can be converted to std::string", "[token]") {
 
   REQUIRE(tok.get_name() == "procedure");
 }
+
+TEST_CASE("Token objects can be compared", "[token]") {
+  token tok1{token_type::integer, "12"};
+  token tok2{token_type::integer, "12"};
+
+  CHECK(tok1 == tok2);
+  CHECK_FALSE(tok1 != tok2);
+
+  token tok3{token_type::integer, "1234"};
+  
+  CHECK(tok1 != tok3);
+  CHECK_FALSE(tok1 == tok3);
+}

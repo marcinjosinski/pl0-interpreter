@@ -57,6 +57,9 @@ public:
   token(token &&) noexcept = default;
   token &operator=(token &&) noexcept = default;
 
+  bool operator==(const token& rhs) const;
+  bool operator!=(const token& rhs) const;
+
   [[nodiscard]] bool is(token_type type) const noexcept;
 
   [[nodiscard]] bool is_one_of(token_type t1, token_type t2) const noexcept;
@@ -77,12 +80,15 @@ public:
   std::string get_name() const;
   int get_integer() const;
 
+
 private:
   token_type type_;
   std::string_view lexeme_;
 };
 
 std::ostream &operator<<(std::ostream &, const token &);
+
+
 
 } // namespace pl0::lexer
 
