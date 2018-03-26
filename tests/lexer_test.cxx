@@ -42,8 +42,7 @@ TEST_CASE("State of current_token variable in Lexer", "[lexer]") {
   }
 }
 
-TEST_CASE("Next token from the stream can be obtained by get_next_token()",
-          "[lexer]") {
+TEST_CASE("Next token from the stream can be obtained by get_next_token()", "[lexer]") {
   lexer lex{std::string{"var IDENT := 12; "}};
 
   REQUIRE(lex.get_next_token() == token{token_type::var, "var"});
