@@ -26,7 +26,7 @@ TEST_CASE("Define Identifier_info symbol in Scope", "[scope]") {
   scope s{"Global Scope"};
 
   auto var =
-      std::make_unique<identifier_info>(std::move(variable_symbol{"Var1", 12}));
+      std::make_unique<ident_info>(std::move(variable_symbol{"Var1", 12}));
 
   s.define(std::move(var));
 

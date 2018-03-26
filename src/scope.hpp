@@ -10,7 +10,7 @@
 
 namespace pl0::scope {
 
-using symbol_table = std::unordered_map<std::string_view, identifier_info_ptr>;
+using symbol_table = std::unordered_map<std::string_view, ident_info_ptr>;
 
 class scope {
 public:
@@ -25,13 +25,13 @@ public:
 
   std::shared_ptr<scope> get_enclosing_scope() { return enclosing_scope_; }
 
-  void define(identifier_info_ptr symbol) {
+  void define(ident_info_ptr symbol) {
     auto result = memory_.emplace(symbol->get_name(), std::move(symbol));
     if (!result.second)
       throw utils::error{"Fail define symbol"};
   }
 
-  identifier_info::identifier_info *resolve(std::string_view name) {
+  identifier_info::ident_info *resolve(std::string_view name) {
     auto iter = memory_.find(name);
     if (iter == memory_.end()) {
       return enclosing_scope_ ? enclosing_scope_->resolve(name) : nullptr;
