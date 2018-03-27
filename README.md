@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.com/nnji/pl0-interpreter.svg?token=MXtyqM2ctosbpAYyDCZD&branch=master)](https://travis-ci.com/nnji/pl0-interpreter)
+[![Build Status](https://travis-ci.org/nnji/pl0-interpreter.svg?branch=master)](https://travis-ci.org/nnji/pl0-interpreter)
 
 # PL0 Interpreter
 
